@@ -1,6 +1,6 @@
-import { NativeModule, requireNativeModule } from 'expo';
+import { NativeModule, requireNativeModule } from "expo";
 
-import { TestPackageModuleEvents } from './TestPackage.types';
+import { TestPackageModuleEvents } from "./TestPackage.types";
 
 declare class TestPackageModule extends NativeModule<TestPackageModuleEvents> {
   PI: number;
@@ -9,4 +9,4 @@ declare class TestPackageModule extends NativeModule<TestPackageModuleEvents> {
 }
 
 // This call loads the native module object from the JSI.
-export default requireNativeModule<TestPackageModule>('TestPackage');
+export default requireNativeModule<TestPackageModule>("TestPackage");

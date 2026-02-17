@@ -16,7 +16,17 @@ export default function BlurTabBarBackground() {
 }
 
 export function useBottomTabOverflow() {
-  const tabHeight = useBottomTabBarHeight();
   const { bottom } = useSafeAreaInsets();
-  return tabHeight - bottom;
+  let tabHeight = bottom;
+
+  // `useBottomTabBarHeight` throws if this screen isn't inside a Bottom Tab
+  // Navigator. That can happen in some Expo Router dev flows or when this
+  // component is reused elsewhere, so fall back gracefully.
+  try {
+    tabHeight = useBottomTabBarHeight();
+  } catch {
+    tabHeight = bottom;
+  }
+
+  return Math.max(tabHeight - bottom, 0);
 }

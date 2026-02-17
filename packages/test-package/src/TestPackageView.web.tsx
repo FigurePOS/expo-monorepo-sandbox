@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { TestPackageViewProps } from './TestPackage.types';
+import { TestPackageViewProps } from "./TestPackage.types";
 
 export default function TestPackageView(props: TestPackageViewProps) {
   return (
